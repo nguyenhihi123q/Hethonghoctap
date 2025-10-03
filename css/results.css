@@ -1,0 +1,120 @@
+:root{
+  --bg: #f7f8fb;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --primary: #4f46e5;
+  --primary-weak: rgba(79,70,229,.12);
+  --ring: rgba(79,70,229,.25);
+  --border: #e5e7eb;
+  --success: #10b981;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji','Segoe UI Emoji';
+  line-height:1.6;
+  color:var(--text);
+  background:
+    radial-gradient(1000px 600px at -20% -20%, #eef2ff 0%, transparent 60%),
+    radial-gradient(1000px 600px at 120% 0%, #e0f2fe 0%, transparent 60%),
+    var(--bg);
+}
+
+.page{max-width:1000px;margin:32px auto;padding:0 16px 48px}
+
+.page-header{
+  display:flex;align-items:center;justify-content:center;margin:12px 0 24px
+}
+.brand{display:flex;gap:16px;align-items:center}
+.brand-mark{
+  width:48px;height:48px;border-radius:12px;background:var(--primary-weak);
+  display:grid;place-items:center;font-weight:700;color:var(--primary);
+  box-shadow:0 6px 18px rgba(79,70,229,.15);
+}
+.brand-title{margin:0;font-size:1.5rem;letter-spacing:.2px}
+.brand-subtitle{margin:.25rem 0 0;color:var(--muted);font-size:.95rem}
+
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+  padding:20px;
+}
+
+.result-card{margin-bottom:16px}
+.summary{display:flex;flex-direction:column;gap:14px}
+.summary-text{margin:0;color:var(--muted)}
+.metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.metric{padding:12px;border:1px dashed var(--border);border-radius:12px;background:#fafafa}
+.metric-label{display:block;color:var(--muted);font-size:.85rem;margin-bottom:4px}
+.badge{
+  display:inline-block;
+  padding:6px 10px;border-radius:999px;
+  background:var(--primary-weak);
+  color:var(--primary);font-weight:700;letter-spacing:.3px
+}
+.score{font-weight:800;font-size:1.25rem}
+
+.section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.section-title{margin:0;font-size:1.2rem}
+
+.table-wrap{overflow:auto;margin-top:8px}
+table{width:100%;border-collapse:collapse}
+th,td{padding:10px 12px;border-bottom:1px solid var(--border);text-align:left}
+thead th{font-size:.9rem;text-transform:uppercase;color:var(--muted);letter-spacing:.6px}
+
+.skills-grid{display:grid;grid-template-columns:1fr;gap:10px}
+.skill{
+  display:flex;align-items:center;gap:10px;border:1px solid var(--border);
+  border-radius:12px;padding:10px;background:#fff
+}
+.skill-name{min-width:120px;font-weight:600}
+.progress{flex:1;height:10px;border-radius:999px;background:#f1f5f9;position:relative;overflow:hidden}
+.progress > i{display:block;height:100%;width:0%;background:linear-gradient(90deg,var(--primary),#22c55e);border-radius:999px;transition:width .6s ease}
+.progress-val{min-width:50px;text-align:right;font-variant-numeric:tabular-nums}
+
+.plan-grid{display:grid;grid-template-columns:1fr;gap:12px}
+.plan-week{
+  position:relative;
+  border:1px solid var(--border);
+  border-radius:16px;padding:14px;background:#fff;
+}
+.plan-week h3{margin:0 0 6px;font-size:1rem}
+.plan-week div.meta{
+  font-weight: 700;
+  color: var(--text); /* cho đậm màu hơn, có thể bỏ dòng này nếu muốn giữ màu xám */
+}
+.plan-week .list{margin:0;padding-left:18px}
+.plan-week .list li{margin:2px 0}
+
+.page-footer{display:flex;justify-content:flex-end;margin-top:16px}
+.pill{
+  display:inline-block;background:var(--primary);color:#fff;text-decoration:none;
+  border-radius:999px;padding:10px 16px;font-weight:600;border:1px solid transparent;
+  box-shadow:0 6px 16px rgba(79,70,229,.25);
+}
+.pill:focus{outline:none;box-shadow:0 0 0 4px var(--ring)}
+.pill:hover{filter:brightness(.98)}
+
+@media (min-width: 720px){
+  .metrics{grid-template-columns: 240px 1fr}
+  .skills-grid{grid-template-columns: 1fr 1fr}
+  .plan-grid{grid-template-columns: 1fr 1fr}
+}
+
+
+/* === Brand header (centered) === */
+.brand--center{flex-direction:column;align-items:center;text-align:center;gap:10px}
+.brand-logo{
+  height:64px;width:auto;
+  border-radius:12px;
+  background:#ffffff;
+  padding:6px;
+  border:1px solid #efe7ff;
+  box-shadow:0 10px 24px rgba(79,70,229,.18);
+}
+.brand-title,.brand-subtitle{text-align:center}

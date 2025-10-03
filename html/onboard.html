@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Onboarding - Khảo sát ban đầu</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/onboard.css">
+</head>
+<body>
+  <div class="onboard-wrap">
+    <div class="onboard-header">
+      <h1 class="onboard-title">Khảo sát ban đầu</h1>
+      <p class="onboard-sub">Mất khoảng 1–2 phút. Dữ liệu giúp cá nhân hoá lộ trình học.</p>
+    </div>
+
+    <div class="onboard-hero">
+      <section class="onboard-card">
+        <div class="steps" id="wizard-steps">
+          <span class="dot active"></span><span class="dot"></span><span class="dot"></span>
+        </div>
+
+        <form id="form-step-1">
+          <h2>Bước 1: Mục tiêu &amp; thông tin</h2>
+          <div class="grid-2">
+            <div>
+              <label for="goal">Mục tiêu học</label>
+              <select id="goal" required>
+                <option value="">-- Chọn --</option>
+                <option value="thi">Ôn thi / kiểm tra</option>
+                <option value="du_an">Làm dự án web</option>
+                <option value="bo_tro">Bổ trợ kỹ năng</option>
+                <option value="khac">Khác</option>
+              </select>
+              <div class="field-hint">Bạn có thể đổi sau trong phần hồ sơ.</div>
+            </div>
+            <div>
+              <label for="grade">Lớp/Trình độ hiện tại</label>
+              <select id="grade" required>
+                <option value="">-- Chọn --</option>
+                <option value="10">Lớp 10</option>
+                <option value="11">Lớp 11</option>
+                <option value="12">Lớp 12</option>
+                <option value="sinhvien">Sinh viên</option>
+                <option value="khac">Khác</option>
+              </select>
+            </div>
+            <div>
+              <label for="hours">Thời gian học mỗi tuần (giờ)</label>
+              <input id="hours" type="number" min="1" max="30" step="1" placeholder="ví dụ 5" required/>
+            </div>
+            <div>
+              <label for="device">Thiết bị chính</label>
+              <select id="device" required>
+                <option value="">-- Chọn --</option>
+                <option>PC/Laptop</option>
+                <option>Máy tính bảng</option>
+                <option>Điện thoại</option>
+              </select>
+            </div>
+          </div>
+          <div class="actions sticky">
+            <button type="button" id="to-step-2" class="btn primary">Tiếp tục</button>
+          </div>
+        </form>
+
+        <form id="form-step-2" style="display:none">
+          <h2>Bước 2: Tự đánh giá nhanh</h2>
+          <p class="muted">Kéo thanh trượt theo mức tự tin (1 thấp → 5 cao).</p>
+          <div class="grid-2">
+            <div><label>HTML</label><input id="self_html" type="range" min="1" max="5" value="3"></div>
+            <div><label>CSS</label><input id="self_css" type="range" min="1" max="5" value="3"></div>
+            <div><label>JavaScript</label><input id="self_js" type="range" min="1" max="5" value="2"></div>
+            <div><label>Thuật toán</label><input id="self_algo" type="range" min="1" max="5" value="2"></div>
+          </div>
+          <div class="actions sticky">
+            <button type="button" id="back-1" class="btn">Quay lại</button>
+            <button type="button" id="to-step-3" class="btn primary">Tiếp tục</button>
+          </div>
+        </form>
+
+        <form id="form-step-3" style="display:none">
+          <h2>Bước 3: Đồng ý &amp; bắt đầu kiểm tra</h2>
+          <div class="notice">
+            <label><input id="agree" type="checkbox" required> Tôi đồng ý cho phép hệ thống sử dụng dữ liệu học tập để tư vấn lộ trình.</label>
+          </div>
+          <div class="actions sticky">
+            <button type="button" id="back-2" class="btn">Quay lại</button>
+            <button type="submit" class="btn primary">Bắt đầu Placement Test</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="onboard-visual">
+        <div id="onboard-slider" class="slider">
+          <img src="/Images/onboard-1.png" class="slide active" alt=""/>
+          <img src="/Images/onboard-2.png" class="slide" alt=""/>
+          <img src="/Images/onboard-3.png" class="slide" alt=""/>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase-client.js"></script>
+  <script src="/js/onboard.js"></script>
+</body>
+</html>

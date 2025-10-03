@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kết quả & Lộ trình</title>
+
+  <!-- Page-specific CSS -->
+  <link rel="stylesheet" href="/css/results.css" />
+
+  <!-- Supabase (unchanged dependency) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase-client.js"></script>
+
+  <!-- Page-specific JS -->
+  <script src="/js/results.js" defer></script>
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <div class="brand brand--center">
+        <img class="brand-logo" src="/Images/logo-hits.png" alt="HITS logo" />
+        <div class="brand-meta">
+          <h1 class="brand-title">Kết quả kiểm tra</h1>
+          <p class="brand-subtitle">Tổng quan năng lực & lộ trình học tập cá nhân</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="card result-card" aria-live="polite">
+      <div class="summary">
+        <p id="summary" class="summary-text">Đang tải kết quả...</p>
+        <div class="metrics">
+          <div class="metric">
+            <span class="metric-label">Mức hiện tại</span>
+            <span class="badge" id="placement-badge">—</span>
+          </div>
+          <div class="metric">
+            <span class="metric-label">Tổng điểm</span>
+            <span class="score" id="score-total">—%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="card skills-card">
+      <div class="section-head">
+        <h2 class="section-title">Điểm theo kỹ năng</h2>
+      </div>
+
+      <!-- Progress-style visualization -->
+      <div id="skills-grid" class="skills-grid" role="list"></div>
+
+      <!-- Keep original table for data integrity/export -->
+      <div class="table-wrap">
+        <table id="per-tag">
+          <thead>
+            <tr>
+              <th>Kỹ năng</th>
+              <th>Điểm (%)</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card plan-card">
+      <div class="section-head">
+        <h2 class="section-title">Lộ trình 4 tuần gợi ý</h2>
+      </div>
+      <div id="plan" class="plan-grid"></div>
+    </section>
+
+    <footer class="page-footer">
+      <div class="actions">
+        <a class="pill" href="/html/learn.html" id="start-learning">Bắt đầu học</a>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>

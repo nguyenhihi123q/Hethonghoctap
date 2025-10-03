@@ -1,0 +1,113 @@
+/* chat-widget.css – gradient blue theme + compact header */
+/* Keep the base stylesheet from CDN: https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css */
+
+:root{
+  /* Brand & window */
+  --chat--color-primary: #1d4ed8;           /* primary */
+  --chat--window--width: 440px;             /* rộng hơn chút để chat thoáng */
+  --chat--window--height: 640px;
+
+  /* Header uses gradient now (custom prop can store gradients) */
+  --chat--header--background: linear-gradient(135deg,#1e3a8a 0%,#2563eb 55%,#60a5fa 100%);
+  --chat--header--color: #ffffff;
+
+  /* Bubbles */
+  --chat--bubble--user-bg: linear-gradient(135deg,#1d4ed8 0%,#3b82f6 100%);
+  --chat--bubble--user-color: #ffffff;
+  --chat--bubble--agent-bg: #f5f7fb;
+
+  /* Input */
+  --chat--input--background: #ffffff;
+  --chat--input--placeholder: #64748b;
+
+  /* Radius */
+  --chat--border-radius: 14px;
+
+  /* Floating button size */
+  --chat--toggle--size: 56px;
+}
+
+/* ===== Polishing & header compact ===== */
+
+/* Nút mở chat: bo tròn + đổ bóng + gradient */
+.n8n-chat-toggle{
+  background-image: linear-gradient(135deg,#1e3a8a 0%,#2563eb 60%,#60a5fa 100%) !important;
+  color:#fff !important;
+  box-shadow: 0 12px 28px rgba(2,6,23,.22);
+  border:none;
+}
+
+/* Cửa sổ chat */
+.n8n-chat-window{
+  border-radius: 16px;
+  overflow: hidden;              /* để gradient header ôm sát viền */
+  box-shadow: 0 20px 48px rgba(2,6,23,.24);
+}
+
+/* Header nhỏ gọn hơn để nhường chỗ cho phần chat */
+/* Thu gọn header */
+.n8n-chat-header {
+  background: linear-gradient(135deg,#1e3a8a,#2563eb,#60a5fa) !important;
+  color: #fff !important;
+  min-height: 38px;          /* ↓ thu nhỏ chiều cao */
+  padding: 6px 10px;         /* ↓ padding ít hơn */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Tiêu đề nhỏ gọn */
+.n8n-chat-header h3,
+.n8n-chat-header .n8n-chat-title{
+  font-size: 14px;           /* ↓ cỡ chữ nhỏ hơn */
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.2;
+}
+
+/* Mô tả: có thể làm nhỏ lại hoặc ẩn đi */
+.n8n-chat-header .n8n-chat-description{
+  font-size: 11px;           /* chữ nhỏ */
+  margin-top: 2px;
+  line-height: 1.2;
+  opacity: 0.85;
+}
+/* Bong bóng người dùng: gradient + chữ trắng, giảm viền để nhìn “mịn” */
+.n8n-chat-bubble--user{
+  background: var(--chat--bubble--user-bg) !important;
+  color: var(--chat--bubble--user-color) !important;
+  border: none !important;
+}
+
+/* Bong bóng bot: sáng, dễ đọc */
+.n8n-chat-bubble--agent{
+  background: var(--chat--bubble--agent-bg) !important;
+  border: 1px solid rgba(2,6,23,.06) !important;
+}
+
+/* Input cố định, thoáng */
+.n8n-chat-input{
+  background: var(--chat--input--background) !important;
+  border-top: 1px solid rgba(2,6,23,.06);
+  padding: 10px !important;
+}
+
+/* Nút gửi: gradient xanh đồng bộ */
+.n8n-chat-send{
+  background-image: linear-gradient(135deg,#1e3a8a 0%,#2563eb 60%,#60a5fa 100%) !important;
+  color:#fff !important;
+  border:none !important;
+  box-shadow: 0 6px 14px rgba(2,6,23,.18);
+}
+
+/* Thanh cuộn gọn gàng */
+.n8n-chat-messages{
+  scrollbar-width: thin;
+}
+.n8n-chat-messages::-webkit-scrollbar{
+  width: 8px;
+}
+.n8n-chat-messages::-webkit-scrollbar-thumb{
+  background: rgba(2,6,23,.18);
+  border-radius: 999px;
+}

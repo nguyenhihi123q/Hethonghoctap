@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark">
+  <title>Placement Test</title>
+  <link rel="stylesheet" href="/css/placement.css">
+</head>
+<body>
+
+  <!-- Global top progress bar -->
+  <div id="global-progress" class="global-progress" aria-hidden="true"><div class="bar"></div></div>
+
+  <!-- Confirm submit modal -->
+  <div id="confirm-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="confirm-title" aria-hidden="true">
+    <div class="modal-card">
+      <h3 id="confirm-title" class="modal-title">Xác nhận nộp bài?</h3>
+      <p class="modal-text">Sau khi nộp, bạn sẽ được chấm điểm và tạo lộ trình. Bạn chắc chắn muốn nộp chứ?</p>
+      <div class="modal-actions">
+        <button id="confirm-no" class="btn secondary">Hủy</button>
+        <button id="confirm-yes" class="btn primary">Nộp bài</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Thay đường dẫn logo tại src bên dưới (ví dụ: images/logo.png) -->
+  <div class="site-top">
+    <a class="brand" href="javascript:void(0)" aria-label="Trang chủ">
+      <img class="brand-logo" src="/Images/logo-hits.png" alt="Logo của bạn">
+    </a>
+  </div>
+  <div class="test-card" role="main">
+    <header class="header">
+      <h1 class="page-title">Bài kiểm tra đầu vào</h1>
+      <p class="meta">Trả lời tất cả câu hỏi. Đừng quá lo lắng, đây chỉ để gợi ý lộ trình phù hợp.</p>
+    </header>
+
+    <div class="sticky-progress">
+      <div id="progress-text" class="meta" aria-live="polite">Đã trả lời 0/0</div>
+      <div class="progress" aria-label="Tiến độ làm bài">
+        <div id="bar" class="progress-bar" style="width:0%"></div>
+      </div>
+    </div>
+
+    <form id="test-form" novalidate></form>
+
+    <div class="actions">
+      <button id="submit-btn" class="btn primary" disabled>Nộp bài</button>
+    </div>
+  </div>
+
+  <noscript>
+    <p style="max-width:680px;margin:16px auto;padding:12px;border:1px solid #eee;border-radius:8px;background:#fff2;">
+      Bạn cần bật JavaScript để làm bài kiểm tra.
+    </p>
+  </noscript>
+
+  <template id="q-tpl">
+    <fieldset class="q">
+      <legend class="q-title"></legend>
+      <div class="q-meta meta"></div>
+      <div class="q-options"></div>
+    </fieldset>
+  </template>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/js/supabase-client.js"></script>
+  <script src="/js/placement.js" defer></script>
+</body>
+</html>

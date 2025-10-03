@@ -1,0 +1,311 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HITS • Bảng điều khiển</title>
+    <link rel="stylesheet" href="../css/styles.css" />
+    <style>
+      :root{
+        --bg: #0f172a;
+        --panel: #0b1224;
+        --muted: #94a3b8;
+        --txt: #e5e7eb;
+        --brand: #2563eb;
+        --brand-2: #7c3aed;
+        --ok: #16a34a;
+        --warn: #d97706;
+        --err: #dc2626;
+        --radius: 18px;
+      }
+      * { box-sizing: border-box }
+      html, body { height: 100% }
+      body{
+        margin:0;
+        color: var(--txt);
+        background:
+          radial-gradient(1200px 600px at 80% -10%, rgba(124,58,237,.25), transparent 60%),
+          radial-gradient(1000px 500px at -10% 20%, rgba(37,99,235,.25), transparent 60%),
+          var(--bg);
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+        line-height: 1.5;
+      }
+      a{ color: inherit; text-decoration: none }
+      .container{ max-width: 1080px; margin: 32px auto; padding: 0 20px }
+      /* Header */
+      .header{
+        position: sticky; top: 0; z-index: 40;
+        backdrop-filter: blur(10px);
+        background: linear-gradient(180deg, rgba(3,7,18,.88), rgba(3,7,18,.55) 60%, transparent);
+        margin: -16px -20px 8px;
+        padding: 16px 20px;
+      }
+      .header-bar{
+        display:flex; align-items:center; justify-content:space-between; gap:16px;
+        max-width: 1080px; margin: 0 auto;
+      }
+      .brand{ display:flex; align-items:center; gap:12px }
+      .logo{
+        width:38px; height:38px; border-radius:12px;
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        display:grid; place-items:center; color:#fff; font-weight:900; letter-spacing:.5px;
+        box-shadow: 0 10px 30px rgba(124,58,237,.25), 0 6px 18px rgba(37,99,235,.25);
+      }
+      .brand h1{ font-size:18px; margin:0 }
+      .actions{ display:flex; align-items:center; gap:10px }
+      .btn{
+        padding:10px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.08);
+        background: rgba(255,255,255,.04); color:#fff; font-weight:700; cursor:pointer;
+        transition: transform .06s ease, background .2s ease, border-color .2s ease;
+      }
+      .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.18) }
+      .btn.brand{ background: linear-gradient(135deg, var(--brand), var(--brand-2)); border: none }
+      .btn.danger{ background:#ef4444; border:none }
+      /* User menu */
+      .user-btn .user-name{max-width:260px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:inline-block}
+      
+      .user{ position: relative }
+      .user-btn{
+        display:flex; align-items:center; gap:10px; font-weight:800;
+      }
+      .avatar{
+        width:32px; height:32px; border-radius:50%;
+        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        display:grid; place-items:center; color:#fff; font-weight:900;
+      }
+      .menu{
+        position: absolute; right: 0; top: calc(100% + 10px);
+        min-width: 220px;
+        background: rgba(255,255,255,.06);
+        border: 1px solid rgba(255,255,255,.12);
+        border-radius: 14px; padding: 8px;
+        backdrop-filter: blur(10px);
+        box-shadow: 0 12px 40px rgba(2,6,23,.45);
+      }
+      .menu-item{
+        width:100%; text-align:left; display:flex; align-items:center; gap:10px;
+        padding:10px 12px; border-radius: 10px; border:1px solid transparent; background: transparent; color: var(--txt);
+        cursor:pointer; font-weight:700;
+      }
+      .menu-item:hover{ background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.12) }
+      .menu .danger{ color:#fecaca; background: rgba(239,68,68,.12); }
+      .menu .danger:hover{ background: rgba(239,68,68,.2) }
+      /* Cards */
+      .grid{ display:grid; gap:18px; grid-template-columns: 1.1fr .9fr }
+      @media (max-width: 900px){ .grid{ grid-template-columns: 1fr } }
+      .card{
+        background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+        border: 1px solid rgba(255,255,255,.08);
+        border-radius: var(--radius);
+        padding: 18px;
+        box-shadow: 0 12px 40px rgba(2,6,23,.35);
+        backdrop-filter: blur(8px);
+      }
+      .title{ font-size:22px; margin:0 0 6px }
+      .muted{ color: var(--muted); margin: 0 0 16px }
+      .row{ display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap }
+      .pill{
+        padding:6px 10px; border-radius:999px; font-size:12px; font-weight:700;
+        border:1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.06); color: #cbd5e1;
+      }
+      .kv{ display:grid; grid-template-columns: 160px 1fr; gap:6px 12px; margin-top:10px }
+      .kv .k{ color: var(--muted) }
+      .kv .v{ font-weight:600 }
+      pre{
+        background:#0b1020; color:#cde3ff; border-radius:14px; padding:14px; overflow:auto;
+        border:1px solid rgba(33,53,94,.55);
+      }
+      .code-head{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:8px }
+      .toggle{ cursor:pointer; user-select:none; font-weight:700; font-size:14px; color:#cbd5e1 }
+      .token{ display:flex; gap:8px; align-items:center; margin-top:8px }
+      .token input{
+        width:100%; padding:10px 12px; border-radius:12px; border:1px dashed rgba(255,255,255,.15);
+        background: rgba(255,255,255,.04); color:#e5e7eb;
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono","Courier New", monospace;
+      }
+      .footer-note{ color:#94a3b8; font-size:12px; margin-top:14px }
+      .link{ color:#93c5fd; text-decoration: underline; text-underline-offset: 3px }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header-bar">
+        <div class="brand">
+          <div class="logo">H</div>
+          <h1>HITS • Dashboard</h1>
+        </div>
+        <nav class="actions">
+          <a class="btn" href="/html/index.html">Về trang chủ</a>
+          <div class="user">
+            <button id="user-btn" class="btn user-btn" aria-expanded="false" aria-haspopup="menu">
+              <span id="user-name">Đang tải…</span>
+              <span id="user-avatar" class="avatar">?</span>
+            </button>
+            <div id="user-menu" class="menu" role="menu" hidden>
+              <a class="menu-item" href="#profile" role="menuitem">Hồ sơ</a>
+              <a class="menu-item" href="trial.html" role="menuitem">Vào trang học thử</a>
+              <a class="menu-item" href="/html/update-password.html" role="menuitem">Đổi mật khẩu</a>
+              <button id="menu-logout" class="menu-item danger" role="menuitem">Đăng xuất</button>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="grid">
+        <section class="card" id="profile">
+          <div class="row">
+            <div>
+              <h2 id="hello" class="title">Xin chào, ...</h2>
+              <p class="muted">Thông tin tài khoản của bạn và trạng thái phiên (Supabase Auth).</p>
+            </div>
+            <div class="pill" id="pill-status">Chưa xác minh email</div>
+          </div>
+
+          <div class="kv">
+            <div class="k">Email</div><div class="v" id="v-email">—</div>
+            <div class="k">User ID</div><div class="v" id="v-uid">—</div>
+            <div class="k">Lần đăng nhập gần nhất</div><div class="v" id="v-last">—</div>
+            <div class="k">Hết hạn phiên</div><div class="v" id="v-exp">—</div>
+          </div>
+
+          <div class="token">
+            <input id="token" type="password" readonly value="" aria-label="Access token" />
+            <button id="btn-toggle" class="btn">Hiện</button>
+            <button id="btn-copy" class="btn brand">Copy token</button>
+          </div>
+
+          <div class="footer-note">⚠️ Token là thông tin nhạy cảm. Chỉ sao chép khi thực sự cần.</div>
+        </section>
+
+        <aside class="card">
+          <div class="section-title">Hồ sơ (profiles)</div>
+          <div class="list" id="profile-list">
+            <div class="muted">Đang tải…</div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="card" style="margin-top:18px;">
+        <div class="code-head">
+          <div class="toggle" id="toggle-json">▶ Xem raw session (JSON)</div>
+          <span class="pill">Debug</span>
+        </div>
+        <pre id="session-pre" style="display:none;">{}</pre>
+      </section>
+
+      <p class="footer-note">Made with Supabase Auth. <a class="link" href="/html/index.html">Quay về trang chủ</a></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-client.js"></script>
+    <script>
+      (async function(){
+        const fmt = (d) => {
+          if (!d) return "—";
+          try { return new Date(d).toLocaleString(); } catch { return d; }
+        };
+        const session = await window.requireAuth("auth.html");
+        if (!session) return;
+        const user = session.user;
+
+        // Header user name & avatar
+        const name = user.user_metadata?.full_name || user.email || "bạn";
+        document.getElementById("user-name").textContent = name;
+        document.getElementById("user-avatar").textContent = (name || "?").trim().charAt(0).toUpperCase();
+
+        // Header greeting
+        document.getElementById("hello").textContent = "Xin chào, " + name;
+        document.getElementById("v-email").textContent = user.email || "—";
+        document.getElementById("v-uid").textContent = user.id || "—";
+        document.getElementById("v-last").textContent = fmt(user.last_sign_in_at);
+        document.getElementById("v-exp").textContent = fmt(session.expires_at * 1000);
+
+        // Email verified
+        const verified = !!user.email_confirmed_at;
+        const pill = document.getElementById("pill-status");
+        if (verified) { pill.textContent = "Email đã xác minh"; pill.style.background = "rgba(22,163,74,.15)"; pill.style.borderColor = "rgba(22,163,74,.35)"; pill.style.color = "#86efac"; }
+        else { pill.textContent = "Chưa xác minh email"; pill.style.background = "rgba(217,119,6,.15)"; pill.style.borderColor = "rgba(217,119,6,.35)"; pill.style.color = "#fbbf24"; }
+
+        // Token
+        const tokenInput = document.getElementById("token");
+        tokenInput.value = session.access_token || "";
+        document.getElementById("btn-toggle").addEventListener("click", function(){
+          const t = tokenInput.getAttribute("type") === "password" ? "text" : "password";
+          tokenInput.setAttribute("type", t);
+          this.textContent = (t === "text") ? "Ẩn" : "Hiện";
+        });
+        document.getElementById("btn-copy").addEventListener("click", async function(){
+          try {
+            await navigator.clipboard.writeText(tokenInput.value);
+            this.textContent = "Đã copy ✓";
+            setTimeout(()=> this.textContent = "Copy token", 1200);
+          } catch(e){
+            this.textContent = "Lỗi copy";
+            setTimeout(()=> this.textContent = "Copy token", 1200);
+          }
+        });
+
+        // Raw JSON viewer
+        const pre = document.getElementById("session-pre");
+        pre.textContent = JSON.stringify(session, null, 2);
+        const tgl = document.getElementById("toggle-json");
+        tgl.addEventListener("click", () => {
+          const open = pre.style.display !== "none";
+          pre.style.display = open ? "none" : "block";
+          tgl.textContent = (open ? "▶" : "▼") + " " + "Xem raw session (JSON)";
+        });
+
+        // Try load profile
+        const p = document.getElementById("profile-list");
+        try{
+          const { data, error } = await window.sb.from("profiles").select("*").eq("id", user.id).single();
+          if (error || !data) {
+            p.innerHTML = '<div class="muted">Chưa có hồ sơ trong bảng <code>profiles</code>.</div>';
+          } else {
+            p.innerHTML = "";
+            for (const [k, v] of Object.entries(data)) {
+              const row = document.createElement("div");
+              row.innerHTML = '<div class="kv"><div class="k">'+k+'</div><div class="v">'+(v ?? "—")+'</div></div>';
+              p.appendChild(row);
+            }
+          }
+        } catch(e){
+          p.innerHTML = '<div class="muted">Không đọc được bảng <code>profiles</code> (có thể chưa tạo).</div>';
+        }
+
+        // User dropdown interactions
+        const userBtn = document.getElementById("user-btn");
+        const menu = document.getElementById("user-menu");
+        const logoutBtn = document.getElementById("menu-logout");
+
+        function openMenu() {
+          menu.hidden = false;
+          userBtn.setAttribute("aria-expanded", "true");
+        }
+        function closeMenu() {
+          menu.hidden = true;
+          userBtn.setAttribute("aria-expanded", "false");
+        }
+        function toggleMenu() {
+          if (menu.hidden) openMenu(); else closeMenu();
+        }
+
+        userBtn.addEventListener("click", (e) => { e.stopPropagation(); toggleMenu(); });
+        document.addEventListener("click", (e) => { if (!menu.hidden) closeMenu(); });
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+
+        logoutBtn.addEventListener("click", async () => {
+          await window.sb.auth.signOut();
+          window.location.href = "index.html?login=1";
+        });
+      })();
+    </script>
+    <script>
+    requireOnboarded('onboard.html');
+    </script>
+
+  </body>
+</html>

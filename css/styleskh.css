@@ -1,0 +1,238 @@
+/* styles.css — Fullscreen, equal-height columns + scrollable sidebar */
+:root{
+  --bg:#0b1220;
+  --surface:#ffffff;
+  --muted:#64748b;
+  --text:#0b1220;
+  --primary:#2563eb;
+  --primary-2:#1e3a8a;
+  --success:#16a34a;
+  --border:#e5e7eb;
+
+  /* Điều chỉnh nhanh chiều cao header/footer nếu cần */
+  --header-h: 56px;   /* ~ chiều cao thực tế của .app-header */
+  --footer-h: 44px;   /* ~ chiều cao thực tế của .app-footer */
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;color:var(--text);background:#f5f7fb;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+
+/* ===================== Header ===================== */
+.app-header{
+  background: linear-gradient(135deg,var(--primary-2),var(--primary));
+  color:#fff;
+  padding:10px 0;
+  border-bottom:1px solid rgba(255,255,255,.15);
+}
+.header-inner{
+  width:100%;
+  padding:0 20px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;
+}
+.brand{display:flex;align-items:center;gap:10px;min-width:0}
+.logo{
+  width:34px;height:34px;border-radius:10px;background:#fff;color:var(--primary-2);
+  display:grid;place-items:center;font-weight:800;box-shadow:0 8px 18px rgba(0,0,0,.15)
+}
+.brand-text .course-title{margin:0;font-size:18px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-text .course-sub{font-size:12px;opacity:.9;margin-top:2px}
+
+.logo {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  overflow: hidden;              /* cắt gọn ảnh trong khung bo góc */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #fff;              /* nền trắng nếu logo không vuông */
+  box-shadow: 0 8px 18px rgba(0,0,0,.15);
+}
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;           /* giữ nguyên tỉ lệ ảnh */
+}
+
+
+/* Progress */
+.progress{display:flex;align-items:center;gap:10px}
+.progress-bar{width:260px;height:8px;background:rgba(255,255,255,.25);border-radius:999px;overflow:hidden}
+.progress-bar span{display:block;height:100%;width:0;background:#22c55e}
+.progress-text{font-size:12px}
+
+/* ===================== Main layout ===================== */
+/* Chiều cao container = chiều cao màn hình - header - footer */
+.layout{
+  display:grid;
+  grid-template-columns: 22% 1fr 25%;   /* tỷ lệ 3 cột */
+  gap:16px;
+  width:100%;
+  padding:16px;
+
+  /* Quan trọng: đặt chiều cao cố định để 3 cột bằng nhau */
+  height: calc(100dvh - var(--header-h) - var(--footer-h));
+  align-items: stretch;   /* con sẽ cao bằng nhau */
+}
+
+/* ========== Sidebar (Tuần học) ========== */
+.sidebar{
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;
+  padding:12px;
+
+  /* Cho phép nội bộ cuộn, còn khung giữ nguyên chiều cao bằng các cột khác */
+  display:flex;flex-direction:column;min-height:0; /* min-height:0 cực kỳ quan trọng để flex con có thể co */
+  overflow:hidden;
+}
+#playlist{
+  flex:1;min-height:0;overflow:auto;padding-right:6px; /* thanh cuộn nội bộ */
+  scroll-behavior:smooth;
+}
+#playlist::-webkit-scrollbar{width:10px}
+#playlist::-webkit-scrollbar-thumb{background:#e2e8f0;border-radius:999px}
+
+/* Nhóm & bài học */
+.section{border:1px dashed #eaeef5;border-radius:10px;padding:6px 8px;margin-bottom:8px}
+.section summary{cursor:pointer;font-weight:700;color:#0f172a}
+.lessons{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.lesson{
+  background:#fff;border:1px solid transparent;border-radius:10px;padding:8px;transition:.2s;cursor:pointer
+}
+.lesson label{display:grid;grid-template-columns:18px 1fr auto;gap:10px;align-items:center}
+.lesson .chk{
+  appearance:none;width:18px;height:18px;border:2px solid var(--success);border-radius:4px;display:inline-grid;place-items:center;cursor:pointer
+}
+.lesson .chk:checked{background:var(--success);border-color:var(--success)}
+.lesson .chk:checked::after{content:"✔";color:#fff;font-size:12px;line-height:1}
+.lesson .title{font-weight:600}
+.lesson .meta{color:var(--muted);font-size:12px}
+.lesson:hover{background:#f8fafc;border-color:#eef2f7}
+.lesson.active{outline:2px solid var(--primary);background:#eff6ff}
+
+/* ========== Content (Video) ========== */
+.content{
+  /* để khối card cao bằng 2 cột còn lại */
+  display:flex;flex-direction:column;min-height:0
+}
+.content .player-card{
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px;
+  display:flex;flex-direction:column;min-height:0; /* cho phép phần trong co giãn */
+  height:100%;
+}
+.player-card h2{margin:0 0 10px 0;font-size:20px}
+.player-ratio{position:relative;width:100%;padding-top:56.25%;border-radius:12px;overflow:hidden;background:#000}
+.player-ratio iframe{position:absolute;inset:0;width:100%;height:100%}
+.controls{display:flex;gap:10px;margin:10px 0 6px}
+.btn { 
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-outline { background: #fff; }
+
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);  /* <— sửa chỗ này */
+  color: #fff;
+}
+
+.btn.small{padding:6px 10px;font-size:12px}
+.desc {
+  margin-top: 12px;   /* hoặc 8px tuỳ ý để sát hơn */
+}
+
+/* giữ style con */
+.desc h3 {
+  margin: 0 0 4px 0;   /* tiêu đề "Giới thiệu" sát trên */
+}
+.desc p {
+  margin: 0;
+  color: #334155;
+}
+
+/* ========== Notes (Ghi chú) ========== */
+.notes-pane{
+  background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:12px;
+  display:flex;flex-direction:column;gap:8px;min-height:0;height:100%;overflow:hidden
+}
+.notes-head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.notes-actions{display:flex;gap:6px}
+#notes{
+  flex:1;min-height:0; /* quan trọng: để textarea cao theo cột và cuộn nội bộ nếu dài */
+  resize:vertical;border:1px solid #e2e8f0;border-radius:12px;padding:12px;outline:none;font:inherit;line-height:1.6;
+  overflow:auto;
+}
+#notes:focus{border-color:#94a3b8;box-shadow:0 0 0 4px rgba(148,163,184,.2)}
+.notes-hint{font-size:12px;color:var(--muted)}
+
+/* ===================== Footer (gọn, luôn sát đáy) ===================== */
+.app-footer{height:var(--footer-h);display:flex;align-items:center;color:#475569}
+.foot-inner{width:100%;padding:0 20px;display:flex;justify-content:space-between}
+.foot-links a{color:inherit;text-decoration:none;margin-left:12px}
+.foot-links a:hover{text-decoration:underline}
+/* ==== n8n chat: vị trí an toàn, tránh đè footer & sidebar ==== */
+.n8n-chat-toggle{
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 2147483000 !important;
+}
+.n8n-chat-window{
+  position: fixed !important;
+  bottom: 96px !important;          /* cách footer ~96px */
+  right: 20px !important;
+  z-index: 2147483001 !important;
+  width: 440px !important;
+  max-height: calc(100dvh - 140px) !important; /* không vượt quá màn hình */
+}
+
+@media (max-width: 820px){
+  .n8n-chat-window{
+    bottom: 16px !important;
+    right: 8px !important;
+    width: min(96vw, 440px) !important;
+    max-height: calc(100dvh - 32px) !important;
+  }
+  .n8n-chat-toggle{ bottom: 16px !important; right: 12px !important; }
+}
+
+/* ==== CHỐT: không để style .btn của app rò rỉ ra widget khác ==== */
+/* chỉ áp dụng style nút bên trong khu vực của app */
+:where(.controls, .notes-actions) .btn{
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  cursor: pointer;
+  font-weight: 600;
+}
+:where(.controls, .notes-actions) .btn-outline{ background:#fff; }
+:where(.controls, .notes-actions) .btn-primary{
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+:where(.controls, .notes-actions) .btn.small{ padding:6px 10px; font-size:12px; }
+
+/* ===================== Responsive ===================== */
+@media (max-width: 1100px){
+  .layout{
+    grid-template-columns:280px 1fr;grid-template-areas:
+      "sidebar content"
+      "sidebar notes";
+    height: auto; /* để trang cuộn tự nhiên trên màn nhỏ */
+  }
+  .notes-pane{margin-top:0}
+}
+@media (max-width: 820px){
+  .layout{grid-template-columns:1fr}
+  .sidebar{position:relative;top:auto}
+  .notes-pane{order:3}
+  .header-inner{flex-direction:column;align-items:flex-start;gap:6px}
+  .progress-bar{width:160px}
+}

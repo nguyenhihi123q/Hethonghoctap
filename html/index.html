@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HITS - Hệ Thống Gia Sư Thông Minh Kết Hợp</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+    <a href="#home" class="logo-link" aria-label="HITS Home">
+        <img src="../Images/logo-hits.png" alt="HITS" class="logo-img">
+    </a>
+    <span>Hybrid Intelligent Tutoring System</span>
+</div>
+                <ul class="nav-menu">
+                    <li><a href="#home">Trang chủ</a></li>
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li><a href="#features">Tính năng</a></li>
+                    <li><a href="#pricing">Gói dịch vụ</a></li>
+                    <li><a href="#contact">Liên hệ</a></li>
+                    <li><a href="#testimonials">Đánh giá</a></li>
+                    <li><a href="#login" class="btn-start cta-start" data-cta-start>Bắt đầu học</a></li>
+                
+                    <li class="nav-cta"><a id="loginTrigger" href="/html/auth.html" class="btn btn-primary">Đăng nhập</a></li></ul>
+                <div class="nav-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Hệ Thống Gia Sư Thông Minh 
+                    <span class="highlight">Kết Hợp</span>
+                </h1>
+                <p class="hero-description">
+                    HITS mang đến giải pháp học tập cá nhân hóa cho học sinh lớp 6-12, 
+                    kết hợp trí tuệ nhân tạo (AI) và sự đồng hành của gia sư thật. 
+                    Giúp học sinh tiến bộ rõ rệt với chi phí tối ưu và thời gian linh hoạt.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary">Dùng thử miễn phí</button>
+                    <button class="btn btn-secondary">Tìm hiểu thêm</button></div>
+            </div>
+            <div class="hero-image">
+                <img src="../Images/IDFMvvb5KmwP.png" alt="AI trong giáo dục">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>Về HITS</h2>
+                <p>Giải pháp giáo dục thông minh cho thế hệ tương lai</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Hệ thống gia sư thông minh kết hợp</h3>
+                    <p>
+                        HITS là nền tảng học trực tuyến cá nhân hóa, ứng dụng trí tuệ nhân tạo để xây dựng 
+                        lộ trình học theo năng lực từng em. Hệ thống gồm bốn thành phần cốt lõi:
+                    </p>
+                    <ul class="feature-list">
+                        <li><i class="fas fa-brain"></i> Mô hình kiến thức - xác định nội dung cần học</li>
+                        <li><i class="fas fa-user-graduate"></i> Mô hình người học - theo dõi tiến độ, điểm mạnh/yếu</li>
+                        <li><i class="fas fa-chalkboard-teacher"></i> Mô hình sư phạm - lựa chọn phương pháp dạy phù hợp</li>
+                        <li><i class="fas fa-desktop"></i> Giao diện tương tác thân thiện</li>
+                    </ul>
+                </div>
+                <div class="about-image">
+                    <img src="../Images/BMqhoPBOFTvK.png" alt="Hệ thống gia sư thông minh">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tính năng nổi bật</h2>
+                <p>Những điều làm nên sự khác biệt của HITS</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Cá nhân hóa</h3>
+                    <p>Phân tích dữ liệu học tập, xây dựng lộ trình cá nhân và đưa ra phản hồi theo thời gian thực</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Gia sư đồng hành</h3>
+                    <p>Gia sư thật đóng vai trò cố vấn và truyền cảm hứng, kết hợp hoàn hảo với AI</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Theo dõi tiến độ</h3>
+                    <p>Phụ huynh có thể theo dõi sát quá trình học và chủ động tham gia nếu muốn</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h3>Phát hiện sớm</h3>
+                    <p>Phát hiện sớm tình trạng học chậm tiến độ, mất tập trung hoặc sa sút tâm lý</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Linh hoạt thời gian</h3>
+                    <p>Học mọi lúc, mọi nơi với lịch trình phù hợp với từng học sinh</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <h3>Tiết kiệm chi phí</h3>
+                    <p>Giải pháp học thêm hiệu quả với chi phí tối ưu, không mất thời gian đưa đón</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>Cách thức hoạt động</h2>
+                <p>Quy trình học tập đơn giản và hiệu quả</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Đánh giá năng lực</h3>
+                        <p>AI phân tích khả năng học tập và xác định điểm mạnh, điểm yếu của học sinh</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Xây dựng lộ trình</h3>
+                        <p>Thiết kế lộ trình học tập cá nhân hóa phù hợp với từng học sinh</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Học tập với AI & Gia sư</h3>
+                        <p>Kết hợp học tập với AI và sự hướng dẫn từ gia sư chuyên nghiệp</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Theo dõi & Điều chỉnh</h3>
+                        <p>Liên tục theo dõi tiến độ và điều chỉnh lộ trình để đạt hiệu quả tối ưu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Bảng Giá Dịch Vụ</h2>
+                <p class="section-description">Chọn gói phù hợp với nhu cầu học tập của con bạn</p>
+            </div>
+            
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Gói Cơ Bản</h3>
+                        <div class="pricing-price">
+                            <span class="price-amount">250.000đ</span>
+                            <span class="price-period">/tháng</span>
+                        </div>
+                        <p class="pricing-description">AI hỗ trợ học tập cá nhân hóa</p>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Học liệu AI cá nhân hóa</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Báo cáo tiến độ hàng tuần</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Hỗ trợ chatbot 24/7</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Tất cả môn học lớp 6-12</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline pricing-btn">Chọn Gói Này</button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Phổ Biến Nhất</div>
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Gói Gia Sư</h3>
+                        <div class="pricing-price">
+                            <span class="price-amount">750.000đ</span>
+                            <span class="price-period">/tháng</span>
+                        </div>
+                        <p class="pricing-description">AI + Gia sư thật đồng hành</p>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Tất cả tính năng gói cơ bản</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Gia sư 1:1 trực tuyến</span>
+</div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Tư vấn học tập cá nhân</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Báo cáo chi tiết cho phụ huynh</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Hỗ trợ tâm lý học tập</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary pricing-btn">Chọn Gói Này</button>
+                </div>
+                
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3 class="pricing-name">Gói VIP</h3>
+                        <div class="pricing-price">
+                            <span class="price-amount">1.500.000đ</span>
+                            <span class="price-period">/tháng</span>
+                        </div>
+                        <p class="pricing-description">Dịch vụ cao cấp toàn diện</p>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Tất cả tính năng gói gia sư</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Luyện thi chuyên sâu</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Gia sư chuyên môn cao</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Tư vấn định hướng nghề nghiệp</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Hỗ trợ ưu tiên 24/7</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-outline pricing-btn">Chọn Gói Này</button>
+                </div>
+            </div>
+            
+            <div class="pricing-note">
+                <p>Tất cả gói đều có 7 ngày dùng thử miễn phí</p>
+                <button class="btn btn-outline">So Sánh Chi Tiết Các Gói</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Liên hệ với chúng tôi</h2>
+                <p>Sẵn sàng hỗ trợ bạn bất cứ lúc nào</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Điện thoại</h4>
+                            <p>0934.721.591</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>Hitsteamdhsphue25@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Địa chỉ</h4>
+                            <p>Đại học Sư phạm Huế, Thừa Thiên Huế</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Họ và tên" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Số điện thoại">
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Tin nhắn" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Gửi tin nhắn</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials"></section>
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Phụ Huynh & Học Sinh Nói Gì?</h2>
+                <p class="section-description">Những phản hồi tích cực từ cộng đồng HITS</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-content">
+                        "Con tôi đã tiến bộ rõ rệt sau 3 tháng sử dụng HITS. Điểm số tăng từ 6.5 lên 8.2!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-name">Chị Nguyễn Thị Lan</div>
+                        <div class="author-role">Phụ huynh học sinh lớp 9</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-content">
+                        "Thầy cô gia sư rất nhiệt tình, AI giúp em hiểu bài nhanh hơn và nhớ lâu hơn."
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-name">Em Trần Minh Khang</div>
+                        <div class="author-role">Học sinh lớp 11</div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-content">
+                        "Hệ thống báo cáo chi tiết giúp tôi theo dõi con học như thế nào. Rất hài lòng!"
+                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-name">Anh Lê Văn Đức</div>
+                        <div class="author-role">Phụ huynh học sinh lớp 12</div>
+                    </div>
+                </div>
+</div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>HITS</h3>
+                    <p>Hệ thống gia sư thông minh kết hợp, mang đến giải pháp học tập cá nhân hóa cho học sinh Việt Nam.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Dịch vụ</h4>
+                    <ul>
+                        <li><a href="#">Học tập cá nhân hóa</a></li>
+                        <li><a href="#">Gia sư AI</a></li>
+                        <li><a href="#">Luyện thi</a></li>
+                        <li><a href="#">Tư vấn học tập</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Hỗ trợ</h4>
+                    <ul>
+                        <li><a href="#">Trung tâm trợ giúp</a></li>
+                        <li><a href="#">Hướng dẫn sử dụng</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Thông tin</h4>
+                    <ul>
+                        <li><a href="#">Về chúng tôi</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản sử dụng</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 HITS Team. Tất cả quyền được bảo lưu.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+
+    
+
+
+    <!-- Plan Select Modal -->
+    <div class="modal" id="planModal" role="dialog" aria-labelledby="planTitle" aria-modal="true" aria-hidden="true">
+        <div class="modal__backdrop" data-close></div>
+        <div class="modal__dialog" role="document">
+            <button class="modal__close" aria-label="Đóng" data-close>&times;</button>
+            <div class="modal__header">
+                <h3 id="planTitle">Bắt đầu học thử</h3>
+                <p class="modal__subtitle">Trải nghiệm lộ trình học cá nhân hóa của HITS trước khi quyết định.</p>
+            </div>
+            <div class="plan-summary" id="planSummary">Bạn đang chọn: <strong>Gói Cơ Bản</strong></div>
+            <div class="plan-actions" style="display:flex; gap:12px; margin-top:14px;">
+                <a href="trial.html" class="btn btn-primary" id="goTrial">Vào trang học thử</a>
+                <button class="btn btn-outline" data-close>Để sau</button>
+            </div>
+            <p class="form-note" style="margin-top:12px;">Không cần thẻ tín dụng. Bạn có thể nâng cấp bất cứ lúc nào.</p>
+        </div>
+    </div>
+
+
+    <!-- Supabase Auth for existing login modal -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-client.js"></script>
+    
+
+</body>
+</html>

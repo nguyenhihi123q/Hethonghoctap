@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Học tập • HITS</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/learn.css" />
+    <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+    <link href="chat-widget.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="layout">
+      <!-- ===== Sidebar ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <div class="logo"><img src="/Images/logo-hits.png" alt="HITS" style="width:100%;height:100%;object-fit:contain;border-radius:8px" /></div>
+          <h1>HITS • Học tập</h1>
+        </div>
+        <nav class="snav">
+          <a class="active" href="/html/learn.html">Tổng quan</a>
+          <a href="#my-courses">Khóa học của tôi</a>
+          <a href="#schedule">Lịch học</a>
+          <a href="#achievements">Thành tích</a>
+          <div class="sep"></div>
+          <a href="/html/dashboard.html">Tài khoản</a>
+          <a href="/html/khoahoc.html">Khóa học</a>
+          <a href="/html/index.html">Trang chủ</a>
+          <a href="/html/results.html">Lộ Trình</a>
+        </nav>
+      </aside>
+
+      <!-- ===== Main ===== -->
+      <main class="main">
+        <!-- Topbar -->
+        <div class="topbar">
+          <div class="search">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M21 21l-4.3-4.3M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Z" stroke="#64748b" stroke-width="2" stroke-linecap="round"/></svg>
+            <input id="search" placeholder="Tìm khóa học, chủ đề, kỹ năng..." />
+          </div>
+          <div class="actions">
+            <button class="btn">Khám phá</button>
+            <button class="btn">Danh mục</button>
+            <div class="user">
+              <button id="userBtn" class="user-btn">
+                <span id="userName" class="user-name">Đang tải...</span>
+                <span id="userAvatar" class="avatar">?</span>
+              </button>
+              <div id="userMenu" class="menu" hidden>
+                <a href="/html/dashboard.html">Hồ sơ & tài khoản</a>
+                <a href="/html/update-password.html">Đổi mật khẩu</a>
+                <button id="logoutBtn" class="danger">Đăng xuất</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===== Continue (Python, ảnh local) ===== -->
+        <section class="card continue" id="continue" data-course="py-101">
+          <div>
+            <div class="badge">Tiếp tục học</div>
+            <h2 id="contTitle" class="course-title">Python cho Người Mới</h2>
+            <p id="contLesson" class="muted">Bài 12: Hàm & tham số</p>
+            <div class="progress"><i id="contProg" style="width:68%"></i></div>
+            <div class="cta">
+              <button id="btnContinue" class="btn brand">Tiếp tục</button>
+              <button class="btn light" onclick="location.hash='#my-courses'">Xem khóa học</button>
+            </div>
+          </div>
+          <div id="contCover"
+               style="border-radius:12px; overflow:hidden; min-height:180px;
+                      background:url('Images/LapTrinhPython.png') center/cover no-repeat;">
+          </div>
+        </section>
+
+        <div class="grid">
+          <!-- My courses -->
+          <section id="my-courses" class="card">
+            <h3 class="title">Khóa học của tôi</h3>
+            <p class="muted">Tiếp tục học dở hoặc bắt đầu bài mới.</p>
+            <div id="courses" class="courses"></div>
+          </section>
+
+          <!-- Today -->
+          <aside class="card">
+            <h3 class="title">Hôm nay</h3>
+            <p class="muted">Lịch học gợi ý</p>
+            <div class="list" id="schedule">
+              <div class="item"><span class="dot"></span><div><b>20:00</b> • Luyện tập Python (30')</div></div>
+              <div class="item"><span class="dot"></span><div><b>20:45</b> • Ôn vòng lặp & list</div></div>
+              <div class="item"><span class="dot"></span><div><b>21:30</b> • Quiz Python Chương 2</div></div>
+            </div>
+            <div class="sep" style="margin:16px 0"></div>
+            <h3 class="title">Gợi ý cho bạn</h3>
+            <div id="recs" class="list"></div>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <!-- === Chỉ dùng ảnh LOCAL === -->
+    <script id="image-config" type="application/json">
+{
+  "banner": "Images/LapTrinhPython.png",
+  "courses": {
+    "py-101": "Images/LapTrinhPython.png",
+    "js-201": "Images/LapTrinhJava.png",
+    "sql-101": "Images/LapTrinhSql.png",
+    "algo-101": "Images/CauTrucDuLieuVaGT.png",
+    "web-101": "Images/Web Fundamentals.png",
+    "ml-101": "Images/Machine Learning.png"
+  }
+}
+</script>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-client.js"></script>
+    <script src="/js/course-catalog.js"></script>
+    <script src="/js/learn.js"></script>
+    <script>
+      // Nếu learn.js render động, block trên vẫn dùng ảnh local từ image-config.
+      requireOnboarded('onboard.html');
+    </script>
+
+    <!-- n8n chat -->
+    <div id="n8n-chat"></div>
+    <script type="module">
+      import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+      createChat({
+        webhookUrl: 'https://automation.ailabviet.com/webhook/f61e1b9f-0f81-46b8-828e-668bfeeeb3eb/chat',
+        target: '#n8n-chat',
+        mode: 'window',
+        loadPreviousSession: true,
+        enableStreaming: false,
+        showWelcomeScreen: true,
+        defaultLanguage: 'vi',
+        i18n: {
+          vi: {
+            title: 'Trợ lý Học tập HITS',
+            subtitle: 'Mình có thể tìm tài liệu, giải thích bài, gợi ý lộ trình.',
+            getStarted: 'Bắt đầu trò chuyện',
+            inputPlaceholder: 'Nhập câu hỏi của bạn...'
+          }
+        },
+        initialMessages: [
+          'Xin chào 👋 Mình là Trợ lý Học tập HITS.',
+          'Bạn muốn hỏi gì hoặc tìm tài liệu nào?',
+          'Bạn có thể cho mình biết tên của bạn để tiện cho trao đổi không nè?'
+        ],
+        metadata: { source: 'learn-page', path: window.location.pathname }
+      });
+    </script>
+  </body>
+</html>

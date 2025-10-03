@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Khoá học • Giao diện kiểu Coursera (Notes)</title>
+  <link rel="stylesheet" href="/css/styleskh.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css">
+  <link href="chat-widget.css" rel="stylesheet" />
+</head>
+<body>
+  <!-- Top header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="logo">
+          <img src="/Images/logo-hits.png" alt="Logo" />
+        </div>
+        <div class="brand-text">
+          <h1 class="course-title">Khóa Học Lập Trình PyThon cơ bản</h1>
+          <div class="course-sub">Foundations: Data, Data, Everywhere</div>
+        </div>
+      </div>
+
+      <div class="progress">
+        <div class="progress-bar"><span id="progress-bar"></span></div>
+        <div class="progress-text"><strong id="progress-count">0</strong>/<span id="progress-total">0</span> bài • <span id="progress-pct">0%</span></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main layout -->
+  <main class="layout">
+    <!-- LEFT: Playlist -->
+    <aside class="sidebar" aria-label="Danh sách phát">
+      <nav id="playlist">
+  <!-- Tuần 0: Khởi động -->
+  <details class="section" open>
+    <summary>Tuần 0 • Khởi động môi trường</summary>
+    <ul class="lessons">
+      <li class="lesson" data-id="W0L1" data-title="Giới thiệu Python & lộ trình học" data-duration="6:00" data-src="https://www.youtube.com/embed/NZj6LI5a9vc">
+        <label><input type="checkbox" class="chk"/><span class="title">Giới thiệu Python & lộ trình học</span><span class="meta">• 6:00</span></label>
+      </li>
+      <li class="lesson" data-id="W0L2" data-title="Cài đặt Python & VSCode/PyCharm" data-duration="10:00" data-src="https://www.youtube.com/embed/6I_ulPytQIc">
+        <label><input type="checkbox" class="chk"/><span class="title">Cài đặt Python & VSCode/PyCharm</span><span class="meta">• 10:00</span></label>
+      </li>
+    </ul>
+  </details>
+
+  <!-- Tuần 1: Ngôn ngữ cơ bản -->
+  <details class="section" open>
+    <summary>Tuần 1 • Cú pháp cơ bản</summary>
+    <ul class="lessons">
+      <li class="lesson" data-id="W1L1" data-title="Biến, kiểu dữ liệu, nhập/xuất" data-duration="12:00" data-src="https://www.youtube.com/embed/6I_ulPytQIc">
+        <label><input type="checkbox" class="chk"/><span class="title">Biến, kiểu dữ liệu, nhập/xuất</span><span class="meta">• 12:00</span></label>
+      </li>
+      <li class="lesson" data-id="W1L2" data-title="Toán tử & biểu thức" data-duration="8:00" data-src="https://www.youtube.com/embed/6I_ulPytQIc?start=480">
+        <label><input type="checkbox" class="chk"/><span class="title">Toán tử & biểu thức</span><span class="meta">• 8:00</span></label>
+      </li>
+      <li class="lesson" data-id="W1L3" data-title="Làm quen với REPL & script" data-duration="7:00" data-src="https://www.youtube.com/embed/oFgg7K2tpfk">
+        <label><input type="checkbox" class="chk"/><span class="title">REPL vs. Script</span><span class="meta">• 7:00</span></label>
+      </li>
+    </ul>
+  </details>
+
+  <!-- Tuần 2: Điều khiển luồng -->
+  <details class="section" open>
+    <summary>Tuần 2 • Cấu trúc điều khiển</summary>
+    <ul class="lessons">
+      <li class="lesson" data-id="W2L1" data-title="Rẽ nhánh if / elif / else" data-duration="9:00" data-src="https://www.youtube.com/embed/PL33lvabfss1xczCv2BA0SaNJHu_VXsFtg">
+        <label><input type="checkbox" class="chk"/><span class="title">Rẽ nhánh if / elif / else</span><span class="meta">• 9:00</span></label>
+      </li>
+      <li class="lesson" data-id="W2L2" data-title="Vòng lặp for / while & break/continue" data-duration="12:00" data-src="https://www.youtube.com/embed/PL33lvabfss1xczCv2BA0SaNJHu_VXsFtg?start=60">
+        <label><input type="checkbox" class="chk"/><span class="title">Vòng lặp for/while, break/continue</span><span class="meta">• 12:00</span></label>
+      </li>
+      <li class="lesson" data-id="W2L3" data-title="List, range & duyệt dữ liệu" data-duration="10:00" data-src="https://www.youtube.com/embed/N2pdacwPWKo">
+        <label><input type="checkbox" class="chk"/><span class="title">List, range & duyệt dữ liệu</span><span class="meta">• 10:00</span></label>
+      </li>
+    </ul>
+  </details>
+
+  <!-- Tuần 3: Hàm & cấu trúc dữ liệu -->
+  <details class="section" open>
+    <summary>Tuần 3 • Hàm & cấu trúc dữ liệu</summary>
+    <ul class="lessons">
+      <li class="lesson" data-id="W3L1" data-title="Hàm, tham số, giá trị trả về" data-duration="11:00" data-src="https://www.youtube.com/embed/PLqfkD788zZGDjIctPlbff9doS_KTXOyDc">
+        <label><input type="checkbox" class="chk"/><span class="title">Hàm, tham số, giá trị trả về</span><span class="meta">• 11:00</span></label>
+      </li>
+      <li class="lesson" data-id="W3L2" data-title="Tuple, Set, Dict – khi nào dùng gì?" data-duration="12:00" data-src="https://www.youtube.com/embed/PL5jWsKxs04_jCmn2suRv9_mH0S15hlJWx">
+        <label><input type="checkbox" class="chk"/><span class="title">Tuple, Set, Dict – khi nào dùng gì?</span><span class="meta">• 12:00</span></label>
+      </li>
+      <li class="lesson" data-id="W3L3" data-title="Comprehension & lambda cơ bản" data-duration="9:00" data-src="https://www.youtube.com/embed/PLqfkD788zZGDjIctPlbff9doS_KTXOyDc?start=600">
+        <label><input type="checkbox" class="chk"/><span class="title">Comprehension & lambda cơ bản</span><span class="meta">• 9:00</span></label>
+      </li>
+    </ul>
+  </details>
+
+  <!-- Tuần 4: Tập tin & mô-đun -->
+  <details class="section" open>
+    <summary>Tuần 4 • Làm việc với file & mô-đun</summary>
+    <ul class="lessons">
+      <li class="lesson" data-id="W4L1" data-title="Đọc/ghi file văn bản" data-duration="10:00" data-src="https://www.youtube.com/embed/PL33lvabfss1xczCv2BA0SaNJHu_VXsFtg?start=1200">
+        <label><input type="checkbox" class="chk"/><span class="title">Đọc/ghi file văn bản</span><span class="meta">• 10:00</span></label>
+      </li>
+      <li class="lesson" data-id="W4L2" data-title="Module, Package & Virtualenv" data-duration="9:00" data-src="https://www.youtube.com/embed/PL5jWsKxs04_jCmn2suRv9_mH0S15hlJWx?start=600">
+        <label><input type="checkbox" class="chk"/><span class="title">Module, Package & Virtualenv</span><span class="meta">• 9:00</span></label>
+      </li>
+      <li class="lesson" data-id="W4L3" data-title="Xử lý ngoại lệ (try/except)" data-duration="8:00" data-src="https://www.youtube.com/embed/yCarxTo0SWc">
+        <label><input type="checkbox" class="chk"/><span class="title">Xử lý ngoại lệ (try/except)</span><span class="meta">• 8:00</span></label>
+      </li>
+    </ul>
+  </details>
+
+  <!-- Tuần 5: OOP -->
+  <details class="section" open>
+    <summary>Tuần 5 • Lập trình hướng đối tượng</summary>
+    <ul class="lessons">
+      <li class="lesson" data-id="W5L1" data-title="Class & Object" data-duration="12:00" data-src="https://www.youtube.com/embed/PLqfkD788zZGDjIctPlbff9doS_KTXOyDc?start=1200">
+        <label><input type="checkbox" class="chk"/><span class="title">Class & Object</span><span class="meta">• 12:00</span></label>
+      </li>
+      <li class="lesson" data-id="W5L2" data-title="Thuộc tính, phương thức, kế thừa" data-duration="12:00" data-src="https://www.youtube.com/embed/PLqfkD788zZGDjIctPlbff9doS_KTXOyDc?start=1500">
+        <label><input type="checkbox" class="chk"/><span class="title">Thuộc tính, phương thức, kế thừa</span><span class="meta">• 12:00</span></label>
+      </li>
+    </ul>
+  </details>
+
+  <!-- Tuần 6: Mini project -->
+  <details class="section" open>
+    <summary>Tuần 6 • Dự án nhỏ tổng kết</summary>
+    <ul class="lessons">
+      <li class="lesson" data-id="W6L1" data-title="Project: Quản lý công việc (CLI)" data-duration="15:00" data-src="https://www.youtube.com/embed/ysz5S6PUM-U">
+        <label><input type="checkbox" class="chk"/><span class="title">Project: Quản lý công việc (CLI)</span><span class="meta">• 15:00</span></label>
+      </li>
+      <li class="lesson" data-id="W6L2" data-title="Project: Phân tích dữ liệu CSV cơ bản" data-duration="18:00" data-src="https://www.youtube.com/embed/jNQXAC9IVRw">
+        <label><input type="checkbox" class="chk"/><span class="title">Project: Phân tích dữ liệu CSV cơ bản</span><span class="meta">• 18:00</span></label>
+      </li>
+    </ul>
+  </details>
+</nav>
+
+    </aside>
+
+    <!-- CENTER: Player + actions + description -->
+    <section class="content">
+      <div class="player-card">
+        <h2 id="video-title">Welcome to the Google Data Analytics Certificate</h2>
+        <div class="player-ratio">
+          <iframe id="player" src="https://www.youtube.com/embed/bl2m9eXfm_A"
+            title="Course video" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+
+        <div class="controls">
+          <button id="btn-prev" class="btn">◀ Trước</button>
+          <button id="btn-done" class="btn btn-outline">Đánh dấu hoàn thành</button>
+          <button id="btn-next" class="btn btn-primary">Tiếp tục ▶</button>
+        </div>
+
+        <div class="desc">
+          <h3>Giới thiệu</h3>
+          <p id="video-desc">Bài giảng mở đầu cho chứng chỉ Google Data Analytics. Giao diện mô phỏng Coursera: bên trái danh sách phát, giữa video, bên phải là ghi chú.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RIGHT: Notes (replace transcript) -->
+    <aside class="notes-pane" aria-label="Ghi chú">
+      <div class="notes-head">
+        <h3>Ghi chú của tôi</h3>
+        <div class="notes-actions">
+          <button id="btn-clear" class="btn small">Xoá</button>
+          <button id="btn-export" class="btn btn-primary small">Xuất Word</button>
+        </div>
+      </div>
+      <textarea id="notes" placeholder="Ghi lại những ý chính, từ khóa, mốc thời gian… (tự lưu)."></textarea>
+      <div class="notes-hint">Tự động lưu cục bộ. Xuất file Word để nộp/bảo lưu.</div>
+    </aside>
+  </main>
+
+  <footer class="app-footer">
+    <div class="foot-inner">
+      <div>© 2025 HITS • Demo UI</div>
+      <div class="foot-links">
+        <a href="#">Hỏi &amp; đáp</a>
+        <a href="#">Tài liệu</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js"></script>
+
+  <div id="n8n-chat"></div>
+  <script type="module">
+  import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+  createChat({
+    webhookUrl: 'https://automation.ailabviet.com/webhook/f61e1b9f-0f81-46b8-828e-668bfeeeb3eb/chat',
+    target: '#n8n-chat',
+    mode: 'window',                // hoặc 'fullscreen'
+    loadPreviousSession: true,
+    enableStreaming: false,
+    showWelcomeScreen: true,
+    defaultLanguage: 'vi',
+    i18n: {
+      vi: {
+        title: 'Trợ lý Học tập HITS',
+        subtitle: 'Mình có thể tìm tài liệu, giải thích bài, gợi ý lộ trình.',
+        getStarted: 'Bắt đầu trò chuyện',
+        inputPlaceholder: 'Nhập câu hỏi của bạn...'
+      }
+    },
+    initialMessages: [
+      'Xin chào 👋 Mình là Trợ lý Học tập HITS.',
+      'Bạn muốn hỏi gì hoặc tìm tài liệu nào?',
+      'Bạn có thể cho mình biết tên của bạn để tiện cho trao đổi không nè?'
+    ],
+    metadata: { source: 'learn-page', path: window.location.pathname }
+  });
+  </script>
+
+
+</body>
+</html>

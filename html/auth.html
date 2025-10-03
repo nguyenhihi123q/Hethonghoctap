@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Đăng nhập / Đăng ký</title>
+    <!-- (Tuỳ giữ) stylesheet chung của site -->
+    <link rel="stylesheet" href="/css/styles.css" />
+    <!-- Styles dành riêng cho trang auth -->
+    <link rel="stylesheet" href="/css/auth.css" />
+  </head>
+  <body class="auth-body">
+    <main class="auth-wrap" role="main">
+      <a class="brand" href="/html/index.html" aria-label="Trang chủ">
+        <img src="/Images/logo-hits.png" alt="HITS" class="brand-logo">
+      </a>
+
+      <header class="auth-header">
+        <h1 class="auth-title">Chào mừng bạn quay lại</h1>
+        <p class="auth-sub">Đăng nhập hoặc tạo tài khoản mới để tiếp tục học</p>
+      </header>
+
+      <div class="tabs" role="tablist" aria-label="Chọn chế độ">
+        <button id="tab-login" class="tab active" type="button" role="tab" aria-selected="true" aria-controls="pane-login">Đăng nhập</button>
+        <button id="tab-signup" class="tab" type="button" role="tab" aria-selected="false" aria-controls="pane-signup">Đăng ký</button>
+      </div>
+
+      <section id="pane-login" role="tabpanel" aria-labelledby="tab-login">
+        <form id="login-form" autocomplete="on">
+          <div class="field">
+            <label for="login-email">Email</label>
+            <input id="login-email" type="email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label for="login-password">Mật khẩu</label>
+            <input id="login-password" type="password" placeholder="••••••••" required />
+          </div>
+          <button class="btn primary" type="submit">Đăng nhập</button>
+          <p class="muted">Hoặc</p>
+          <button id="btn-magic-link" class="btn neutral" type="button">Gửi liên kết đăng nhập qua email</button>
+        </form>
+      </section>
+
+      <section id="pane-signup" role="tabpanel" aria-labelledby="tab-signup" hidden>
+        <form id="signup-form" autocomplete="on">
+          <div class="field">
+            <label for="signup-name">Họ tên (tuỳ chọn)</label>
+            <input id="signup-name" type="text" placeholder="Nguyễn Văn A" />
+          </div>
+          <div class="field">
+            <label for="signup-email">Email</label>
+            <input id="signup-email" type="email" placeholder="you@example.com" required />
+          </div>
+          <div class="field">
+            <label for="signup-password">Mật khẩu</label>
+            <input id="signup-password" type="password" placeholder="Tối thiểu 6 ký tự" minlength="6" required />
+          </div>
+          <button class="btn primary" type="submit">Tạo tài khoản</button>
+        </form>
+      </section>
+    </main>
+
+    <div id="toast" class="toast" hidden>...</div>
+
+    <!-- Supabase SDK and app scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/js/supabase-client.js"></script>
+    <script src="/js/supabase-auth.js"></script>
+  </body>
+</html>

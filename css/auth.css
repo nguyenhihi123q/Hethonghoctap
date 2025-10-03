@@ -1,0 +1,255 @@
+/* ========== Auth Page – Modern Clean UI ========== */
+:root {
+  /* Nền Gradient & Nền nhấn */
+  --bg: linear-gradient(140deg, #0f172a 0%, #1e3a8a 100%); /* Gradient từ Slate-900 -> Blue-700 */
+  --bg-accent: #1e293b;     /* Slate-800, một màu xanh đậm để làm điểm nhấn */
+
+  /* Bề mặt (Card, Modal) & Chữ */
+  --surface: #ffffff;      /* Giữ màu trắng để có độ tương phản cao */
+  --text: #0f172a;         /* Slate-900, màu chữ đậm trên nền sáng */
+  --text-light: #e2e8f0;   /* Slate-200, màu chữ sáng trên nền tối */
+  --muted: #64748b;        /* Slate-500, màu chữ phụ, ít quan trọng hơn */
+
+  /* Màu chủ đạo & Tương phản */
+  --primary: #3b82f6;      /* Blue-500, một màu xanh dương tươi sáng, dễ tiếp cận */
+  --primary-contrast: #ffffff; /* Chữ trắng trên nền màu chủ đạo */
+
+  /* Viền & Vòng focus */
+  --border: #e2e8f0;       /* Slate-200, viền nhạt trên nền sáng */
+  --ring: #60a5fa;         /* Blue-400, màu vòng focus sáng hơn màu chủ đạo */
+
+  --radius: 16px;
+}
+
+@media (prefers-color-scheme: dark){
+  :root{
+    --surface: #0b1020;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+    --border: #1f2937;
+    --bg-accent: #111827;
+    --primary: #1f2937;
+    --primary-contrast: #e5e7eb;
+  }
+}
+
+/* Page */
+.auth-body{
+  min-height: 100dvh;
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  color: var(--text);
+  background:
+    radial-gradient(1200px 600px at 10% -10%, rgba(79,70,229,.15), transparent 60%),
+    radial-gradient(1200px 600px at 90% 110%, rgba(16,185,129,.12), transparent 60%),
+    #f8fafc;
+}
+
+@media (prefers-color-scheme: dark){
+  .auth-body{
+    background:
+      radial-gradient(1200px 600px at 10% -10%, rgba(79,70,229,.2), transparent 60%),
+      radial-gradient(1200px 600px at 90% 110%, rgba(16,185,129,.15), transparent 60%),
+      var(--bg);
+  }
+}
+
+/* Card */
+.auth-wrap{
+  width: min(880px, 92vw);
+  margin: 48px auto;
+  padding: 28px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow:
+    0 24px 64px rgba(2,6,23,.10),
+    0 6px 16px rgba(2,6,23,.06);
+  animation: cardIn .35s ease-out;
+}
+
+@keyframes cardIn{
+  from{ transform: translateY(8px); opacity: 0 }
+  to{ transform: translateY(0); opacity: 1 }
+}
+
+.auth-header{
+  display: grid;
+  gap: 6px;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.auth-title{
+  margin: 0;
+  font-size: clamp(22px, 3.6vw, 28px);
+  letter-spacing: -.01em;
+}
+.auth-sub{ color: var(--muted); font-size: 14px;}
+
+/* Tabs (segmented) */
+.tabs{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  background: linear-gradient(180deg, #f3f4f6, #eef2f7);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 6px;
+  margin: 10px 0 18px;
+}
+@media (prefers-color-scheme: dark){
+  .tabs{
+    background: #0f172a;
+  }
+}
+.tab{
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  padding: 12px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .08s ease;
+}
+.tab:hover{ transform: translateY(-1px); }
+.tab.active{
+  background: var(--bg-accent);
+  color: #fff;
+}
+
+/* Forms */
+form{ display: grid; gap: 14px; }
+.field{ display: grid; gap: 6px; }
+.field label{ font-weight: 700; font-size: 14px; }
+.field input{
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--text);
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease, transform .04s ease;
+}
+@media (prefers-color-scheme: dark){
+  .field input{ background: #0f172a; }
+}
+.field input:focus{
+  border-color: var(--ring);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--ring) 18%, transparent);
+}
+
+/* ================================================== */
+/* ========== Buttons -- ĐÃ ĐƯỢC CẬP NHẬT ========== */
+/* ================================================== */
+.btn{
+  appearance: none;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 800;
+  cursor: pointer;
+  /* Thêm 'box-shadow' vào transition để hiệu ứng đổ bóng mượt hơn */
+  transition: transform .1s ease, box-shadow .15s ease, filter .2s ease, opacity .2s ease;
+}
+
+/* Nút chính với hiệu ứng gradient và bóng đổ hiện đại */
+.btn.primary{
+  background: linear-gradient(180deg, var(--primary) 0%, #2563eb 100%); /* Blue-500 -> Blue-600 */
+  color: var(--primary-contrast);
+  box-shadow: 0 4px 14px 0 rgba(59, 130, 246, 0.35);
+}
+
+.btn.primary:hover{
+  transform: translateY(-2px); /* Hiệu ứng nhô lên khi di chuột */
+  box-shadow: 0 7px 18px 0 rgba(59, 130, 246, 0.4);
+}
+
+.btn:active{
+  transform: translateY(1px); /* Hiệu ứng nhấn xuống */
+}
+
+.btn.primary:active {
+  box-shadow: 0 3px 10px 0 rgba(59, 130, 246, 0.3); /* Giảm bóng khi nhấn */
+}
+
+.btn.neutral{
+  background: #eef2f7;
+  color: #111827;
+}
+
+@media (prefers-color-scheme: dark){
+  /* Khôi phục lại kiểu nút gốc cho chế độ tối */
+  .btn.primary {
+    background: var(--bg-accent);
+    color: var(--primary-contrast);
+    box-shadow: none;
+  }
+  .btn.primary:hover {
+    transform: none;
+    box-shadow: none;
+    filter: brightness(1.25); /* Dùng filter để tạo phản hồi */
+  }
+
+  .btn.neutral{ background: #111827; color: #e5e7eb; }
+}
+
+/* Small UI */
+.muted{ color: var(--muted); text-align: center; font-size: 14px; }
+.sep{ height:1px; background: var(--border); margin: 4px 0 10px; border: 0; }
+
+/* Toast */
+.toast{
+  position: fixed;
+  right: 16px; bottom: 16px;
+  min-width: 220px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  color: #fff;
+  background: var(--bg-accent);
+  box-shadow: 0 16px 40px rgba(2,6,23,.24);
+  z-index: 50;
+}
+.toast.warn{ background:#d97706 }
+.toast.error{ background:#b91c1c }
+.toast.success{ background:#15803d }
+
+/* Responsive */
+@media (max-width: 520px){
+  .auth-wrap{ padding: 18px; margin: 24px auto; }
+  .tab{ padding: 10px 12px; font-weight: 700; }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; }
+}
+
+/* ========== Brand Logo ========== */
+/* Use with: <a class="brand" href="index.html"><img src="images/logo-hits.png" class="brand-logo" alt="HITS"></a> */
+.auth-wrap{ position: relative; }
+
+.brand{
+  position: absolute; top: 14px; left: 14px;
+  display: inline-flex; align-items: center; gap: 8px;
+  text-decoration: none; z-index: 2;
+}
+
+.brand-logo{
+  height: 36px; width: auto;
+  border-radius: 10px;
+  background: #ffffff;
+  padding: 4px;
+  border: 1px solid #efe7ff;
+  box-shadow: 0 10px 24px rgba(139,92,246,.18);
+}
+@media (prefers-color-scheme: dark){
+  .brand-logo{ background: #0f172a; border-color: #1f2937; }
+}
+@media (max-width: 520px){
+  .brand-logo{ height: 30px; }
+}
+
+/* Optional: fixed logo at viewport corner if you use class 'brand-fixed' */
+.brand-fixed{ position: fixed; top: 20px; left: 20px; z-index: 50; }
